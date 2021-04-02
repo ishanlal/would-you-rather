@@ -12,7 +12,7 @@ class Leaderboard extends Component {
         {
           this.props.userObject.map((item) => (
             <li key={item.id}>
-              <LeaderCard users={item} />
+              <LeaderCard user={item} />
             </li>
           ))}
         </ul>

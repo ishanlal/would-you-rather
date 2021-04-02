@@ -9,19 +9,19 @@ class LeaderCard extends Component {
         return <p>This user doesn't exist</p>
     }
 
-    const { id, name, avatarURL, answers, questions } = user
+    const { id, name, avatar, ans_ques, create_ques } = user
 
     return (
       <div className='user'>
         <img
-          src={avatarURL}
+          src={avatar}
           alt={`Avatar of ${name}`}
           className='avatar'
          />
         <div className='user-info'>
           <span>{name}</span>
-          <div>Answered Questions: {answers}</div>
-          <div>Created Questions: {questions}</div>
+          <div>Answered Questions: {ans_ques}</div>
+          <div>Created Questions: {create_ques}</div>
         </div>
       </div>
     )
