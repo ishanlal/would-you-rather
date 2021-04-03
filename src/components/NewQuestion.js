@@ -42,7 +42,7 @@ class NewQuestion extends Component {
         <h3 className='center'>Create New Question</h3>
         <h5 className='center'>Complete the question:</h5>
         <h6 className='center'>Would you rather...</h6>
-        <form className='new-question' onSubmit={this.handleSubmit}>
+        <form className='new-question'>
           <textarea
             placeholder='option 1 text here'
             value={optionOneText}
@@ -58,7 +58,7 @@ class NewQuestion extends Component {
           )}
         </form>
         <p className='center'>OR</p>
-        <form className='new-question' onSubmit={this.handleSubmit}>
+        <form className='new-question'>
           <textarea
             placeholder='option 2 text here'
             value={optionTwoText}
@@ -77,6 +77,7 @@ class NewQuestion extends Component {
           className='btn'
           type='submit'
           disabled={optionOneText === '' || optionTwoText === ''}
+          onClick={this.handleSubmit}
         >
           Submit
         </button>
