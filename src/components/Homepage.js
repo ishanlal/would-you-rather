@@ -4,13 +4,11 @@ import {connect} from 'react-redux'
 class Homepage extends Component {
   render () {
     return (
-
+      <div>
+      HOME PAGE
+      </div>
     )
   }
 }
 
-function mapStateToProps () {
-
-}
-
-export default connect (mapStateToProps)(Homepage)
+export default Homepage

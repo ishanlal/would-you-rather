@@ -1,32 +1,39 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {handleAddQuestion} from '../actions/questions'
+import {formatQuestion} from '../utils/helpers'
+import {Redirect} from 'react-router-dom'
 
 class NewQuestion extends Component {
   state = {
     optionOneText: '',
-    optionTwoText: ''
+    optionTwoText: '',
+    toHome: false
   }
   handleChange = (e) => {
-    const optionOneText = e.target.value_1
-    const optionTwoText = e.target.value_2
     this.setState(() => ({
-      optionOneText,
-      optionTwoText
+      [e.target.name]: e.target.value
     }))
   }
   handleSubmit = (e) => {
     e.preventDefault()
+
     const {optionOneText, optionTwoText} = this.state
-    // todo: add question to the store
-    console.log('New Question: ', optionOneText, optionTwoText)
+    const {dispatch, authedUser} = this.props
+
+    dispatch(handleAddQuestion(formatQuestion({optionOneText, optionTwoText, authedUser})))
+    console.log('fsdfdsfdsf', formatQuestion({optionOneText, optionTwoText, authedUser}))
     this.setState(() => ({
       optionOneText: '',
-      optionTwoText: ''
+      optionTwoText: '',
+      toHome: true
     }))
   }
   render () {
-    const {optionOneText, optionTwoText} = this.state
-
+    const {optionOneText, optionTwoText, toHome} = this.state
+    if (toHome === true) {
+      return <Redirect to='/' />
+    }
     let optionOneLeft = 280-optionOneText.length
     let optionTwoLeft = 280-optionTwoText.length
 
@@ -38,7 +45,8 @@ class NewQuestion extends Component {
         <form className='new-question' onSubmit={this.handleSubmit}>
           <textarea
             placeholder='option 1 text here'
-            value_1={this.state.optionOneText}
+            value={optionOneText}
+            name='optionOneText'
             onChange={this.handleChange}
             className='textarea'
             maxLength={280}
@@ -53,7 +61,8 @@ class NewQuestion extends Component {
         <form className='new-question' onSubmit={this.handleSubmit}>
           <textarea
             placeholder='option 2 text here'
-            value_2={this.state.optionTwoText}
+            value={optionTwoText}
+            name='optionTwoText'
             onChange={this.handleChange}
             className='textarea'
             maxLength={280}
@@ -76,4 +85,4 @@ class NewQuestion extends Component {
   }
 }
 
-export default NewQuestion
+export default connect()(NewQuestion)
