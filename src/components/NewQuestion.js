@@ -21,8 +21,8 @@ class NewQuestion extends Component {
     const {optionOneText, optionTwoText} = this.state
     const {dispatch, authedUser} = this.props
 
-    dispatch(handleAddQuestion(formatQuestion({optionOneText, optionTwoText, authedUser})))
-    console.log('fsdfdsfdsf', formatQuestion({optionOneText, optionTwoText, authedUser}))
+    dispatch(handleAddQuestion({optionOneText, optionTwoText}))
+    console.log('submit data: ', ({optionOneText, optionTwoText}))
     this.setState(() => ({
       optionOneText: '',
       optionTwoText: '',
