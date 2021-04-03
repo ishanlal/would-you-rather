@@ -23,7 +23,7 @@ export function handleAddQuestion (question) {
     const {authedUser} = getState()
     dispatch(showLoading())
     return saveQuestion({
-      question,
+      ...question,
       author: authedUser,
     })
     .then((question) => dispatch(addQuestion(question)))

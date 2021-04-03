@@ -20,12 +20,11 @@ class App extends Component {
         <LoadingBar />
         <Nav />
         {this.props.loading === true
-          ? null
+          ? <Route path='/login' component={LoginPage} />
           : <div>
               <Route path='/' exact component={Homepage} />
               <Route path='/add' component={NewQuestion} />
               <Route path='/leaderboard' component={Leaderboard} />
-              <Route path='/login' component={LoginPage} />
             </div>
         }
         </Fragment>
