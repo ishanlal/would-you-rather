@@ -9,7 +9,7 @@ export function setAuthedUser (id) {
   }
 }
 
-export function handleLogout (id) {
+export function handleLogout () {
   return (dispatch, getState) => {
     dispatch(setAuthedUser(null))
   }

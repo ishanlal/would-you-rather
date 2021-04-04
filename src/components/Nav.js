@@ -3,23 +3,16 @@ import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { Link, withRouter } from 'react-router-dom'
 import {handleLogout} from '../actions/authedUser'
+import LoginPage from './LoginPage'
 
 class Nav extends Component {
   handleLogoutButton = (e) => {
     e.preventDefault()
-
-    const { authedUser } = this.props
-
-    this.props.dispatch(handleLogout({
-      authedUser
-    }))
-    this.props.history.push('/login')
+    const { dispatch, authedUser } = this.props
+    dispatch(handleLogout())
   }
-
   render() {
-
   const { usersData, authedUser } = this.props
-
   return (
     <nav className='nav'>
       <ul>
@@ -55,15 +48,9 @@ class Nav extends Component {
            />
         </li>
         <li>
-          {/*<NavLink to='/login' activeClassName='active'>
-            LOGOUT
-          </NavLink>
-          */}
-          <Link to={'/login'} className='login-logout'>
-          <button>
+          <button onClick={this.handleLogoutButton}>
             LOGOUT
           </button>
-          </Link>
         </li>
       </ul>
     </nav>
@@ -78,4 +65,4 @@ function mapStateToProps({users, authedUser}) {
   }
 }
 
-export default withRouter(connect(mapStateToProps)(Nav)) // connecting joins a component to the store then we can dispatch actions
+export default connect(mapStateToProps)(Nav) // connecting joins a component to the store then we can dispatch actions

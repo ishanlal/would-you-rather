@@ -44,8 +44,8 @@ export function handleSaveQuestionAnswer (question) {
     const {authedUser} = getState()
     dispatch(showLoading())
     return saveQuestionAnswer({
-      authedUser,
       ...question,
+      authedUser
     })
     .then((question) => dispatch(saveQA(question)))
     .then(() => dispatch(hideLoading()))
