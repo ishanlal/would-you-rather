@@ -9,6 +9,7 @@ import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import Nav from './Nav'
 import PollResults from './PollResults'
+import PollPage from './PollPage'
 
 class App extends Component {
   componentDidMount() {
@@ -26,7 +27,9 @@ class App extends Component {
               <Route path='/' exact component={Homepage} />
               <Route path='/add' component={NewQuestion} />
               <Route path='/leaderboard' component={Leaderboard} />
-              <Route path='/questions' component={PollResults} />
+              <Route path='/pollresults' component={PollResults} />
+              <Route path='/poll' component={PollPage} />
+              <Route path='/login' component={LoginPage} />
             </div>
         }
         </Fragment>

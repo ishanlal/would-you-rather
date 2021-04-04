@@ -11,9 +11,6 @@ export function setAuthedUser (id) {
 
 export function handleLogout (id) {
   return (dispatch, getState) => {
-    const {authedUser} = getState()
-    dispatch(showLoading())
-    .then((id) => dispatch(setAuthedUser(id)))
-    .then(() => dispatch(hideLoading()))
+    dispatch(setAuthedUser(null))
   }
 }

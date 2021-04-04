@@ -10,7 +10,7 @@ class Nav extends Component {
 
     const { authedUser } = this.props
 
-    dispatch(handleLogout({
+    this.props.dispatch(handleLogout({
       authedUser
     }))
     this.props.history.push('/login')
@@ -60,7 +60,7 @@ class Nav extends Component {
           </NavLink>
           */}
           <Link to={'/login'} className='login-logout'>
-          <button onClick={this.handleLogoutButton}>
+          <button>
             LOGOUT
           </button>
           </Link>
