@@ -8,6 +8,7 @@ import NewQuestion from './NewQuestion'
 import Homepage from './Homepage'
 import LoginPage from './LoginPage'
 import Nav from './Nav'
+import PollResults from './PollResults'
 
 class App extends Component {
   componentDidMount() {
@@ -18,13 +19,14 @@ class App extends Component {
       <Router>
         <Fragment>
         <LoadingBar />
-        <Nav />
         {this.props.loading === true
-          ? <Route path='/login' component={LoginPage} />
+          ? <Route component={LoginPage} />
           : <div>
+              <Nav />
               <Route path='/' exact component={Homepage} />
               <Route path='/add' component={NewQuestion} />
               <Route path='/leaderboard' component={Leaderboard} />
+              <Route path='/questions' component={PollResults} />
             </div>
         }
         </Fragment>
@@ -39,4 +41,4 @@ function mapStateToProps({authedUser}) {
   }
 }
 
-export default connect()(App) // connecting joins a component to the store then we can dispatch actions
+export default connect(mapStateToProps)(App) // connecting joins a component to the store then we can dispatch actions
