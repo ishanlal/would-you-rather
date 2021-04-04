@@ -5,7 +5,7 @@ import { Link, withRouter } from 'react-router-dom'
 import {handleLogout} from '../actions/authedUser'
 
 class Nav extends Component {
-  handleLogout = (e) => {
+  handleLogoutButton = (e) => {
     e.preventDefault()
 
     const { authedUser } = this.props
@@ -60,7 +60,7 @@ class Nav extends Component {
           </NavLink>
           */}
           <Link to={'/login'} className='login-logout'>
-          <button onClick={this.handleLogout}>
+          <button onClick={this.handleLogoutButton}>
             LOGOUT
           </button>
           </Link>
