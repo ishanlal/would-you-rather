@@ -19,7 +19,7 @@ class PollCard extends Component {
     const {dispatch, questionData} = this.props
     const qid = questionData.id
     dispatch(handleSaveQuestionAnswer({qid, answer}))
-    console.log('saveQuestionAnswer data: ', ({qid, answer}))
+    //console.log('saveQuestionAnswer data: ', ({qid, answer}))
     this.setState(() => ({
       radioButtonState: true,
       value: ''

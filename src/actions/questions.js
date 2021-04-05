@@ -44,10 +44,13 @@ export function handleSaveQuestionAnswer (question) {
     const {authedUser} = getState()
     dispatch(showLoading())
     return saveQuestionAnswer({
-      ...question,
-      authedUser
+      authedUser,
+      ...question
     })
-    .then((question) => dispatch(saveQA(question)))
+    .then(() => {dispatch(saveQA({
+        authedUser,
+        ...question}))}
+      )
     .then(() => dispatch(hideLoading()))
   }
 }

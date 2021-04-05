@@ -14,14 +14,13 @@ export default function questions (state = {}, action) {
         [action.question.id]: action.question
       }
     case SAVE_QUESTION_ANSWER:
-      const {ques} = action
       return {
         ...state,
-        [action.question.id]: {
-          ...state[action.question.id],
-          [action.answer]: {
-            ...state[action.question.id][action.answer],
-            votes: state[action.question.id][action.answer].votes.concat([action.authedUser])
+        [action.question.qid]: {
+          ...state[action.question.qid],
+          [action.question.answer]: {
+            ...state[action.question.qid][action.question.answer],
+            votes: state[action.question.qid][action.question.answer].votes.concat([action.question.authedUser])
           }
         }
       }
