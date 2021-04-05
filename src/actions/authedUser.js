@@ -14,3 +14,9 @@ export function handleLogout () {
     dispatch(setAuthedUser(null))
   }
 }
+
+export function handleLogin (id) {
+  return (dispatch, getState) => {
+    dispatch(setAuthedUser(id))
+  }
+}

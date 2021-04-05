@@ -11,7 +11,11 @@ export default function questions (state = {}, action) {
       const {question} = action
       return {
         ...state,
-        [action.question.id]: action.question
+        [action.question.id]: action.question,
+        [action.author]: {
+          ...state[action.author],
+          questions: state[action.author].questions.concat([action.question.id])
+        }
       }
     case SAVE_QUESTION_ANSWER:
       return {
@@ -21,6 +25,13 @@ export default function questions (state = {}, action) {
           [action.question.answer]: {
             ...state[action.question.qid][action.question.answer],
             votes: state[action.question.qid][action.question.answer].votes.concat([action.question.authedUser])
+          }
+        },
+        [action.question.authedUser]: {
+          ...state[action.question.authedUser],
+          answers: {
+            ...state[action.question.authedUser].answers,
+            [action.question.qid]: action.question.answer
           }
         }
       }

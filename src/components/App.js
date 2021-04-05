@@ -29,7 +29,6 @@ class App extends Component {
               <Route path='/leaderboard' component={Leaderboard} />
               <Route path='/pollresults' component={PollResults} />
               <Route path='/poll' component={PollPage} />
-              <Route path='/login' component={LoginPage} />
             </div>
         }
         </Fragment>
