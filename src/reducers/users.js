@@ -18,6 +18,7 @@ export default function users (state = {}, action) {
       }
     case SAVE_QUESTION_ANSWER:
       return {
+        ...state,
         [action.question.authedUser]: {
           ...state[action.question.authedUser],
           answers: {
