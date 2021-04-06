@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Would you Rather App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+App Demo: [Would you Rather Demo](https://www.youtube.com/watch?v=xfmSkLAL__Q&t=1s).
 
 ## Available Scripts
 
