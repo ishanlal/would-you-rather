@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {handleSaveQuestionAnswer} from '../actions/questions'
+import { Link, withRouter } from 'react-router-dom'
 
 class PollCard extends Component {
   state = {
@@ -24,14 +25,11 @@ class PollCard extends Component {
       radioButtonState: true,
       value: ''
     }))
+    //this.props.history.push(`/`)
   }
   render () {
 
     const { usersData, questionData } = this.props
-
-    const optionOneVotes = questionData.optionOne.votes.length
-    const optionTwoVotes = questionData.optionTwo.votes.length
-    const totalVotes = questionData.optionOne.votes.length+questionData.optionTwo.votes.length
 
     return (
       <div className='center'>
@@ -50,6 +48,10 @@ class PollCard extends Component {
           <input type='radio' id={questionData.optionTwo.text} name="poll" value='optionTwo' onChange={this.handleChange} />
           <label for={questionData.optionTwo.text}>{questionData.optionTwo.text}</label>
         </div>
+        <Link to={{
+         pathname: `/questions/${this.props.id}`,
+         state: { answered: true }
+        }}>
         <button
           className='btn'
           type='submit'
@@ -58,6 +60,7 @@ class PollCard extends Component {
         >
           Submit
         </button>
+        </Link>
       </div>
     )
   }
@@ -70,4 +73,4 @@ function mapStateToProps ({users, questions}, {id}) {
   }
 }
 
-export default connect(mapStateToProps)(PollCard)
+export default withRouter(connect(mapStateToProps)(PollCard))

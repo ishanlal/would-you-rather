@@ -10,6 +10,7 @@ import LoginPage from './LoginPage'
 import Nav from './Nav'
 import PollResults from './PollResults'
 import PollPage from './PollPage'
+import QuestionDisplay from './QuestionDisplay'
 
 class App extends Component {
   componentDidMount() {
@@ -27,8 +28,7 @@ class App extends Component {
               <Route path='/' exact component={Homepage} />
               <Route path='/add' component={NewQuestion} />
               <Route path='/leaderboard' component={Leaderboard} />
-              <Route path='/pollresults' component={PollResults} />
-              <Route path='/poll' component={PollPage} />
+              <Route path='/questions/:qid' component={QuestionDisplay} />
             </div>
         }
         </Fragment>

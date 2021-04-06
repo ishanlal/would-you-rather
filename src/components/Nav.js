@@ -10,6 +10,7 @@ class Nav extends Component {
     e.preventDefault()
     const { dispatch, authedUser } = this.props
     dispatch(handleLogout())
+    this.props.history.push(`/`)
   }
   render() {
   const { usersData, authedUser } = this.props
@@ -65,4 +66,4 @@ function mapStateToProps({users, authedUser}) {
   }
 }
 
-export default connect(mapStateToProps)(Nav) // connecting joins a component to the store then we can dispatch actions
+export default withRouter(connect(mapStateToProps)(Nav)) // connecting joins a component to the store then we can dispatch actions
