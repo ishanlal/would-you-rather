@@ -67,3 +67,14 @@ console.log(uaqArray)
 //console.log(qArray)
 
 //console.log(Object.values(questions))
+
+
+
+<Link to={{
+ pathname: '/courses',
+ search: '?sort=name',
+ hash: '#the-hash',
+ state: { fromDashboard: true }
+}}>
+ Courses
+</Link>
