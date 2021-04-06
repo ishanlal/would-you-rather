@@ -50,3 +50,20 @@
                  ['score']: Object.keys(users.sarahedo.answers).length + users.sarahedo.questions.length
                }
               }
+
+
+
+
+              let allqids = Object.keys(questions)
+let qids = Object.keys(users['sarahedo']['answers']) // answered qids
+console.log(allqids)
+console.log(qids)
+let qArray = qids.map((item) => {return questions[item]}) // answered Q array
+let uaqids = allqids.filter((item)=> {
+        return !(qids.includes(item))
+    });
+let uaqArray = uaqids.map((item) => {return questions[item]}) //
+console.log(uaqArray)
+//console.log(qArray)
+
+//console.log(Object.values(questions))

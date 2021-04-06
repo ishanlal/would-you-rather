@@ -47,9 +47,9 @@ export function handleSaveQuestionAnswer (question) {
       authedUser,
       ...question
     })
-    .then(() => {dispatch(saveQA({
+    .then(() => dispatch(saveQA({
         authedUser,
-        ...question}))}
+        ...question}))
       )
     .then(() => dispatch(hideLoading()))
   }
