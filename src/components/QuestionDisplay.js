@@ -6,7 +6,7 @@ import PollCard from './PollCard'
 class QuestionDisplay extends Component {
   render() {
 
-    const {answered} = this.props.location.state
+    const {answered} = this.props
 
     return (
       <div className='center'>
@@ -34,8 +34,11 @@ class QuestionDisplay extends Component {
 
 function mapStateToProps ({users, questions, authedUser}, props) {
 const {qid} = props.match.params
+let ques_answered = Object.keys(users[authedUser].answers).includes(qid)
+
 return {
-  ques_id: qid
+  ques_id: qid,
+  answered: ques_answered
 }
 }
 

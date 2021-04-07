@@ -25,7 +25,6 @@ class PollCard extends Component {
       radioButtonState: true,
       value: ''
     }))
-    //this.props.history.push(`/`)
   }
   render () {
 
@@ -48,10 +47,6 @@ class PollCard extends Component {
           <input type='radio' id={questionData.optionTwo.text} name="poll" value='optionTwo' onChange={this.handleChange} />
           <label for={questionData.optionTwo.text}>{questionData.optionTwo.text}</label>
         </div>
-        <Link to={{
-         pathname: `/questions/${this.props.id}`,
-         state: { answered: true }
-        }}>
         <button
           className='btn'
           type='submit'
@@ -60,7 +55,6 @@ class PollCard extends Component {
         >
           Submit
         </button>
-        </Link>
       </div>
     )
   }
