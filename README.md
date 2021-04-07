@@ -9,4 +9,3 @@ App Demo: [Would you Rather Demo](https://www.youtube.com/watch?v=xfmSkLAL__Q&t=
 * Clone the repo to your local directory.
 * Install all project dependencies with `npm install`
 * Start the development server with `npm start`
-* 
