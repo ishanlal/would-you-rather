@@ -9,3 +9,14 @@ App Demo: [Would you Rather Demo](https://www.youtube.com/watch?v=xfmSkLAL__Q&t=
 * Clone the repo to your local directory.
 * Install all project dependencies with `npm install`
 * Start the development server with `npm start`
+
+# Screenshots
+
+<img src='./signInPage.png' height='50%' width='50%' alt='Sign In Page Screenshot' />
+<img src='./userList.png' height='50%' width='50%' alt='Users Screenshot' />
+<img src='./userSelected.png' height='50%' width='50%' alt='Selected User Screenshot' />
+<img src='./loginPage.png' height='50%' width='50%' alt='Logged In Screenshot' />
+<img src='./leaderBoardPage.png' height='50%' width='50%' alt='Leader Board Screenshot' />
+<img src='./createNewQuestion.png' height='50%' width='50%' alt='Add Question Screenshot' />
+<img src='./pollResultDisplay.png' height='50%' width='50%' alt='Answered Poll Results Display Screenshot' />
+<img src='./questionScreen.png' height='50%' width='50%' alt='Unanswered Question Screenshot' />
